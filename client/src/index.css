@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --paper:#F3F5F2; --card:#fff; --ink:#1D2B2A; --pine:#1F5F57; --mist:#DCE4E0; --rust:#B5472F;
+  --code:#14201F; --codeink:#BFE3D8; color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:#101816; --card:#17221F; --ink:#E4ECE8; --pine:#4FB3A5; --mist:#2A3A36; --rust:#E58C75;
+    --code:#0B1211; --codeink:#9FD8C9; color-scheme: dark;
+  }
+}
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body { background: var(--paper); color: var(--ink); font-family: 'Instrument Sans', system-ui, sans-serif; }
+
+@layer components {
+  .display { font-family: 'Fraunces', Georgia, serif; }
+  .card { background: var(--card); box-shadow: 0 0 0 1px var(--mist); }
+  .field { width:100%; background:var(--card); color:var(--ink); border:1px solid var(--mist); border-radius:6px; padding:.5rem .75rem; font-size:.875rem; }
+  .field:hover { border-color: var(--pine); }
+  .field:focus { outline: 2px solid var(--pine); outline-offset: 1px; }
+  .btn { background:var(--pine); color:var(--paper); border-radius:6px; padding:.5rem 1rem; font-size:.875rem; font-weight:600; }
+  .btn:hover { filter: brightness(1.12); }
+  .ghost { border-radius:6px; padding:.5rem 1rem; font-size:.875rem; box-shadow: 0 0 0 1px var(--mist); }
+  .ghost:hover, .lnk:hover { background: var(--mist); }
+  .lnk { border-radius:4px; padding:.25rem .5rem; font-size:.875rem; }
+  .btn:focus-visible, .ghost:focus-visible, .lnk:focus-visible { outline: 2px solid var(--pine); outline-offset: 2px; }
+  .avatar { background: var(--pine); color: var(--paper); }
+  .muted { opacity: .7; }
+  .row:hover { background: color-mix(in srgb, var(--mist) 45%, transparent); }
+  .row.active { background: var(--mist); }
+  pre.sql { background:var(--code); color:var(--codeink); border-radius:8px; padding:.75rem; font-size:.75rem; overflow-x:auto; white-space:pre-wrap; }
+}
